@@ -4,18 +4,10 @@ import os
 import requests
 import sys
 
-# configuration form a file or from env
-if os.environ.get('SETTINGS_FROM_ENV'):
-    UPDATE_IZ_KEY = os.environ['UPDATE_IZ_KEY']
-    LINKED_IZ_KEYS = os.environ['LINKED_IZ_KEYS']
-    IZ_READ_WRITE_KEYS = os.environ['IZ_READ_WRITE_KEYS']
-    UPDATE_IZ = os.environ['UPDATE_IZ']
-    REPORT_FILE = os.environ['REPORT_FILE']
-else:
-    from settings import *
-    UPDATE_IZ = sys.argv[1]
-    REPORT_FILE = sys.argv[2]
-    UPDATE_IZ_KEY = IZ_READ_WRITE_KEYS[UPDATE_IZ]
+from settings import *
+UPDATE_IZ = sys.argv[1]
+REPORT_FILE = sys.argv[2]
+UPDATE_IZ_KEY = IZ_READ_WRITE_KEYS[UPDATE_IZ]
 
 def alma_get(resource, apikey, params=None, fmt='json'):
     '''
