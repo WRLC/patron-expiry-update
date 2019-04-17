@@ -4,3 +4,6 @@
 data/
 venv/
 *settings.py
+__pycache__/
+Spring2019/
+dataFiles/
